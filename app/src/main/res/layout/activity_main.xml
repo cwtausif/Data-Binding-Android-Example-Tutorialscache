@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="user"
+            type="com.tutorialscache.databindingexample.UserModel" />
+        <variable
+            name="handler"
+            type="com.tutorialscache.databindingexample.MainActivity.MyHandler" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.tutorialscache.databindingexample.MainActivity">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="CreateProfile"
+            android:layout_marginTop="40dp"
+            android:textSize="25sp"
+            android:textColor="@color/colorAccent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/createprofile_txt" />
+        <EditText
+            android:id="@+id/nameEdit"
+            android:layout_below="@id/createprofile_txt"
+            android:layout_marginTop="15dp"
+            android:inputType="textPersonName"
+            android:hint="Enter Your Name"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/emailEdit"
+            android:layout_below="@id/nameEdit"
+            android:hint="Enter Your Email"
+            android:layout_marginTop="15dp"
+            android:inputType="textEmailAddress"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/cityEdit"
+            android:layout_below="@id/emailEdit"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:hint="Enter Your City"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content" />
+        <Button android:id="@+id/button"
+            android:layout_below="@id/cityEdit"
+            android:layout_height="wrap_content"
+            android:text="Show Profile"
+            android:textColor="#ffff"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="10dp"
+            android:onClick="@{handler::onButtonClick}"
+            android:layout_centerHorizontal="true"
+            android:layout_width="150dp" />
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{user.name}"
+            android:layout_below="@id/button"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/emailTv"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{user.email}"
+            android:layout_below="@id/nameTv"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/emailTv"
+            android:text="@{user.city}"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/cityTv" />
+
+    </RelativeLayout>
+
+</layout>
